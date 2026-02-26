@@ -1,8 +1,8 @@
 {
     "name": {
-        "en": "StreamKit Effect Template",
-        "ru": "Шаблон эффекта для StreamKit",
-        "ua": "Шаблон ефекту для StreamKit"
+        "en": "Blue screen of death (BSOD)",
+        "ru": "Синий экран смерти (BSOD)",
+        "ua": "Синій екран смерті (BSOD)"
     },
     "author": "RocketMan",
     "version": "1.0.0",

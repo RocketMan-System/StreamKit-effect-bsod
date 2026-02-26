@@ -1,20 +1,20 @@
 {
-  "name": "streamkit-effect-template",
-  "version": "1.0.1",
-  "description": "Template for RocketMan StreamKit application custom effect",
+  "name": "streamkit-effect-bsod",
+  "version": "1.0.0",
+  "description": "BSOD Effect for RocketMan StreamKit application custom effect",
   "keywords": [
-    "template",
+    "bsod",
     "js",
     "rocketman",
     "streamkit"
   ],
-  "homepage": "https://github.com/RocketMan-System/StreamKit-effect-template#readme",
+  "homepage": "https://github.com/RocketMan-System/StreamKit-effect-bsod#readme",
   "bugs": {
-    "url": "https://github.com/RocketMan-System/StreamKit-effect-template/issues"
+    "url": "https://github.com/RocketMan-System/StreamKit-effect-bsod/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RocketMan-System/StreamKit-effect-template.git"
+    "url": "git+https://github.com/RocketMan-System/StreamKit-effect-bsod.git"
   },
   "license": "MIT",
   "author": "RocketMan",

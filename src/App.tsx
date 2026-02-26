@@ -5,9 +5,7 @@ import {
 	TRIGGER_ID,
 } from "@rocketman-system/streamkit-widget-helper";
 
-const battaryIcon = require("./media/battary.svg").default;
-
-const audio = new Audio(require("./media/camera.mp3").default);
+const audio = new Audio(require("./media/bsod.mp3").default);
 
 export const App = React.memo(() => {
 	const [loaded, setLoaded] = React.useState(false);
@@ -29,6 +27,19 @@ export const App = React.memo(() => {
 		 */
 		amount?: string;
 	}>();
+	const [timer, setTimer] = React.useState(0);
+
+	React.useEffect(() => {
+		const tm = setInterval(() => {
+		setTimer(old => {
+			return Math.min(99, old + 1);
+		});
+		}, 1000);
+
+		return () => {
+			clearTimeout(tm);
+		};
+	}, []);
 
 	React.useEffect(() => {
 		ApiRequest("GET", "private/effect/loadData", {
@@ -47,19 +58,11 @@ export const App = React.memo(() => {
 		audio.volume = data.volume / 100;
 
 		audio.onended = () => {
-			audio.currentTime = 8.13;
+			audio.currentTime = 16.46;
 			audio.play();
 		};
 
-		const int = setInterval(() => {
-			if (audio.currentTime >= 16.0) {
-				audio.currentTime = 8.13;
-				audio.play();
-			}
-		}, 100);
-
 		return () => {
-			clearInterval(int);
 			audio.pause();
 		};
 	}, [loaded, data]);
@@ -67,49 +70,13 @@ export const App = React.memo(() => {
 	if (!loaded) return <></>;
 
 	return (
-		<div className="effectMain">
-			<div className="camera">
-				<div className="top">
-					<div>
-						<div className="circle" /> REC
-					</div>
-					<div></div>
-					<div>
-						LOW BATTERY <img src={battaryIcon} className={"batteryIcon"} />
-					</div>
-				</div>
-				<div>
-					<div></div>
-					<div>
-						<div className="overlay">
-							<div className="overlay-element top-left"></div>
-							<div className="overlay-element top-right"></div>
-							<div className="overlay-element bottom-left"></div>
-							<div className="overlay-element bottom-right"></div>
-						</div>
-					</div>
-					<div></div>
-				</div>
-				<div>
-					<div>
-						ISO 100
-						{data?.name && (
-							<>
-								<br />
-								{data.name}
-							</>
-						)}
-					</div>
-					<div></div>
-					<div>
-						{Math.floor((window.innerHeight + window.innerWidth) / 100)} Mbps
-						<br />
-						{window.innerHeight}x{window.innerWidth}
-						<br />
-						FPS 60
-					</div>
-				</div>
-			</div>
-		</div>
+		<div className={`bsod`}>
+        <div className="title">:(</div>
+        <div className="desc">
+          Your PC ran into a problem and needs to restart. We're just collecting
+          some error info, and then we'll restart for you.
+        </div>
+        <div className="timer">{timer}% complete</div>
+      </div>
 	);
 });
