@@ -4,13 +4,18 @@
         "ru": "Синий экран смерти (BSOD)",
         "ua": "Синій екран смерті (BSOD)"
     },
+    "description": {
+        "en": "Sudden Blue Screen of Death will always come in handy! But to avoid breaking the streamer's PC, let's pretend it's real!",
+        "ru": "Внезапный Синий Экран Смерти всегда будет кстати! Но чтобы не ломать ПК стримера, сделаем вид, что он настоящий!",
+        "ua": "Раптовий Синій Екран Смерті завжди буде доречним! Але щоб не ламати ПК стримера, зробимо вигляд, що він справжній!"
+    },
     "author": "RocketMan",
     "version": "1.0.0",
     "type": "effect",
     "permissions": ["effectData"],
     "settings": {
         "maxSeconds": 120,
-        "volume": 70,
+        "volume": 40,
         "defaultSeconds": 30
     }
 }
